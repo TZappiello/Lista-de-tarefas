@@ -8,11 +8,11 @@ import { TaskList } from '../../home/model/task-list';
 })
 export class TodoListComponent implements OnInit, DoCheck {
 
-  listaTarefa: Array<TaskList> = [];
+  listaTarefa: Array<TaskList> = JSON.parse(localStorage.getItem("lista") || '[]');
   constructor() { }
 
   ngDoCheck(): void {
-    this.listaTarefa.sort((first, last) => Number(first.checked) - Number(last.checked));
+    this.setarLocalStorage()
   }
 
   ngOnInit(): void {
@@ -31,6 +31,24 @@ export class TodoListComponent implements OnInit, DoCheck {
   }
   receberEmiter(event: string){
     this.listaTarefa.push({task: event, checked: false});
+  }
+
+  acaoListaTarefa(e: string, index: number){
+    if(!e.length){
+      const alerta = window.confirm("Você deseja apagar essa Tarefa?")
+      
+      if(alerta){
+        this.deleteItemTarefa(index);
+      }
+
+    }
+  }
+
+  setarLocalStorage(){
+    if(this.listaTarefa){
+      this.listaTarefa.sort((first, last) => Number(first.checked) - Number(last.checked));
+      localStorage.setItem("lista", JSON.stringify(this.listaTarefa))
+    }
   }
 
 }
