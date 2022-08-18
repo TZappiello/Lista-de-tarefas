@@ -1,1 +1,4 @@
-<input type="text" placeholder="Digite sua tarefa Aqui...">
+<input type="text" placeholder="Digite sua tarefa Aqui..." 
+[(ngModel)]="adicionaLista"
+(keyup.enter)="pegaItemAdicionado()"
+>

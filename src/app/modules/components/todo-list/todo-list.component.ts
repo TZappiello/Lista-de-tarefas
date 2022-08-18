@@ -8,10 +8,7 @@ import { TaskList } from '../../home/model/task-list';
 })
 export class TodoListComponent implements OnInit {
 
-  listaTarefa: Array<TaskList> = [
-    { task: 'Minha Tarefa', checked: true},
-    { task: 'Minha Tarefa2', checked: false}
-  ]
+  listaTarefa: Array<TaskList> = [];
   constructor() { }
 
   ngOnInit(): void {
@@ -28,4 +25,8 @@ export class TodoListComponent implements OnInit {
       this.listaTarefa = [];
     }
   }
+  receberEmiter(event: string){
+    this.listaTarefa.push({task: event, checked: false});
+  }
+
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-todo-input-add-itens',
@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoInputAddItensComponent implements OnInit {
 
+  @Output() emiterListaTarefa = new EventEmitter();
+
+  adicionaLista: string = "";
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  pegaItemAdicionado(){
+    this.adicionaLista = this.adicionaLista.trim();
+    if(this.adicionaLista){
+      this.emiterListaTarefa.emit(this.adicionaLista);
+      this.adicionaLista = "";
+    }
   }
 
 }

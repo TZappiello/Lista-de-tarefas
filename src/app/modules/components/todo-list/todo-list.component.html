@@ -13,5 +13,11 @@
     
 </section>
 
-<app-todo-input-add-itens></app-todo-input-add-itens>
-<app-todo-button-delete-all *ngIf="listaTarefa.length" (click)="deleteTudoLista()" ></app-todo-button-delete-all>
+<app-todo-input-add-itens 
+(emiterListaTarefa)="receberEmiter($event)">
+</app-todo-input-add-itens>
+
+<app-todo-button-delete-all 
+*ngIf="listaTarefa.length" 
+(click)="deleteTudoLista()">
+</app-todo-button-delete-all>
