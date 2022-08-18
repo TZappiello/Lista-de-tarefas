@@ -1,18 +1,10 @@
-<section>
-    <ul>
-        <li>
-            <input type="checkbox">
-            <input type="text">
-            <button>
-                <img src="assets/icons/iconelixo.svg" alt="">
-            </button>
-        </li>
-    </ul>
+<section [ngClass]="{'loading': !listaTarefa.length}">
 
-    <ul>
-        <li>
-            <input type="checkbox">
-            <input type="text" class="checked">
+    <ul *ngIf="listaTarefa.length">
+        <li *ngFor="let item of listaTarefa; index as i">
+            <input type="checkbox" [(ngModel)]="item.checked">
+            <input type="text" [(ngModel)]="item.task">
+            
             <button>
                 <img src="assets/icons/iconelixo.svg" alt="">
             </button>
@@ -22,4 +14,4 @@
 </section>
 
 <app-todo-input-add-itens></app-todo-input-add-itens>
-<app-todo-button-delete-all></app-todo-button-delete-all>
+<app-todo-button-delete-all *ngIf="listaTarefa.length"></app-todo-button-delete-all>
