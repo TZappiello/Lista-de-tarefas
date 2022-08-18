@@ -5,7 +5,7 @@
             <input type="checkbox" [(ngModel)]="item.checked">
             <input type="text" [(ngModel)]="item.task">
             
-            <button>
+            <button (click)="deleteItemTarefa(i)">
                 <img src="assets/icons/iconelixo.svg" alt="">
             </button>
         </li>
@@ -14,4 +14,4 @@
 </section>
 
 <app-todo-input-add-itens></app-todo-input-add-itens>
-<app-todo-button-delete-all *ngIf="listaTarefa.length"></app-todo-button-delete-all>
+<app-todo-button-delete-all *ngIf="listaTarefa.length" (click)="deleteTudoLista()" ></app-todo-button-delete-all>

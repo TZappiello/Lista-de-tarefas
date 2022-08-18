@@ -17,4 +17,15 @@ export class TodoListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  deleteItemTarefa(e: number){
+    this.listaTarefa.splice(e, 1);
+  }
+
+  deleteTudoLista(){
+    const alerta = window.confirm("Você deseja mesmo Deletar Tudo?")
+
+    if(alerta){
+      this.listaTarefa = [];
+    }
+  }
 }
