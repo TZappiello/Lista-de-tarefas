@@ -3,7 +3,7 @@
     <ul *ngIf="listaTarefa.length">
         <li *ngFor="let item of listaTarefa; index as i">
             <input type="checkbox" [(ngModel)]="item.checked">
-            <input type="text" [(ngModel)]="item.task">
+            <input type="text" [(ngModel)]="item.task" [ngClass]="{'checked': item.checked}">
             
             <button (click)="deleteItemTarefa(i)">
                 <img src="assets/icons/iconelixo.svg" alt="">

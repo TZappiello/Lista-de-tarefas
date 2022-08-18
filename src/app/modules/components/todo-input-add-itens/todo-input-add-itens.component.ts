@@ -10,6 +10,7 @@ export class TodoInputAddItensComponent implements OnInit {
   @Output() emiterListaTarefa = new EventEmitter();
 
   adicionaLista: string = "";
+  
   constructor() { }
 
   ngOnInit(): void {
